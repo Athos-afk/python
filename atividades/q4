@@ -1,0 +1,13 @@
+"""Questão 04 – Número Par ou Ímpar
+4. Faça um programa que leia um número inteiro e verifique se ele é:
+• Par; ou
+• Ímpar.
+Utilize o operador % para realizar a verificação.
+Estrutura obrigatória: if / else."""
+
+numero = (int(input("Insira um numero : ")))
+
+if(numero % 2 == 0):
+    print("Este numero é par.")
+elif(numero % 2 != 0):
+    print("Esté numero é impar")
