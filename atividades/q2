@@ -1,0 +1,13 @@
+"""Questão 02 – Temperatura Alta
+2. Uma empresa deseja monitorar a temperatura de uma sala.
+Faça um programa que:
+I. Leia a temperatura em graus Celsius;
+II. Verifique se a temperatura é superior a 30 °C;
+III. Caso seja, apresente:
+"Atenção: temperatura alta!"
+Estrutura obrigatória: utilize somente if."""
+
+gcelsius = int(input("Insira uma temperatura em celsius"))
+
+if(gcelsius > 30):
+    print("Atenção! Temperatura Alta : ")
