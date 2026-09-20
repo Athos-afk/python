@@ -1,0 +1,32 @@
+"""Questão 10 – Calculadora Simples
+10. Faça um programa que:
+1. Leia dois números;
+2. Leia uma operação matemática entre +, -, * ou /;
+3. Realize a operação escolhida;
+4. Apresente o resultado.
+O programa deverá apresentar uma mensagem de erro caso o usuário informe uma operação diferente das
+quatro opções."""
+
+numero1 = float(input("Digite o primeiro número: "))
+numero2 = float(input("Digite o segundo número: "))
+operacao = input("Digite a operação (+, -, *, /): ")
+
+if operacao == "+":
+    resultado = numero1 + numero2
+elif operacao == "-":
+    resultado = numero1 - numero2
+elif operacao == "*":
+    resultado = numero1 * numero2
+elif operacao == "/":
+    if numero2 == 0:
+        print("Erro: divisão por zero.")
+    else:
+        resultado = numero1 / numero2
+else:
+    print("Erro: operação inválida. Escolha +, -, * ou /.")
+    raise SystemExit
+
+if operacao == "/" and numero2 == 0:
+    pass
+else:
+    print(f"Resultado: {resultado}")
