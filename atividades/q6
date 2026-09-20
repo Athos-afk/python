@@ -1,0 +1,18 @@
+"""Questão 06 – Desconto na Compra
+6. Uma loja oferece 10% de desconto para compras com valor superior a R$ 500,00.
+Faça um programa que:
+1. Leia o valor da compra;
+2. Verifique se o cliente possui direito ao desconto;
+3. Se possuir, calcule o valor do desconto;
+4. Caso contrário, informe que não há desconto.
+Apresente o resultado na tela.
+Estrutura obrigatória: if / else."""
+
+valcompra = (float(input("Insira o valor da compra : ")))
+
+if(valcompra > 500):
+    print("O cliente possui direito a desconto.")
+    print("O cliente terá um desconto de R${}".format(valcompra*0.10))
+    print("O valor total com desconto será de : R${}".format(valcompra - (valcompra*0.10)))
+else:
+    print("Sem desconto, valor total R${}".format(valcompra))
