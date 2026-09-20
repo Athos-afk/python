@@ -1,0 +1,17 @@
+# Questão 1 - Números de 1 a 20[cite: 1]
+
+# Variável para contar a quantidade de números pares[cite: 1]
+qtd_pares = 0
+
+print("--- Números de 1 a 20 ---")
+# Estrutura for para percorrer os números de 1 a 20[cite: 1]
+for i in range(1, 21):
+    # Verifica se o número é par[cite: 1]
+    if i % 2 == 0:
+        print(f"{i} - É par")
+        qtd_pares += 1
+    else:
+        print(f"{i}")
+
+# Apresenta a quantidade total de números pares[cite: 1]
+print(f"\nQuantidade de números pares encontrados: {qtd_pares}")
