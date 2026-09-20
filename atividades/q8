@@ -1,20 +1,15 @@
-"""Questão 09 – Classificação de Idade
-9. Faça um programa que leia a idade de uma pessoa e classifique-a como:
-• De 0 a 12 anos → "Criança"
-• De 13 a 17 anos → "Adolescente"
-• De 18 a 59 anos → "Adulto"
-• 60 anos ou mais → "Idoso"
+"""Questão 08 – Classificação da Temperatura
+8. Faça um programa que leia uma temperatura em graus Celsius e apresente:
+• Temperatura abaixo de 15 °C → "Frio"
+• Temperatura entre 15 °C e 30 °C → "Temperatura agradável"
+• Temperatura acima de 30 °C → "Calor"
 Estrutura obrigatória: if / elif / else."""
 
-idade = int(input("Digite a idade da pessoa: "))
+temperatura = float(input("Digite a temperatura em graus Celsius: "))
 
-if 0 <= idade <= 12:
-    print("Criança")
-elif 13 <= idade <= 17:
-    print("Adolescente")
-elif 18 <= idade <= 59:
-    print("Adulto")
-elif idade >= 60:
-    print("Idoso")
+if temperatura < 15:
+    print("Frio")
+elif 15 <= temperatura <= 30:
+    print("Temperatura agradável")
 else:
-    print("Idade inválida")
+    print("Calor")
