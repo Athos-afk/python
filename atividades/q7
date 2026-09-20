@@ -1,0 +1,19 @@
+"""Questão 07 – Classificação da Nota
+7. Faça um programa que leia a nota de um aluno e classifique seu desempenho:
+• Nota de 0 a 4,9 → "Reprovado"
+
+Professor Jean Holguim – Engenharia de Software 4
+• Nota de 5,0 a 6,9 → "Recuperação"
+• Nota de 7,0 a 10,0 → "Aprovado"
+Estrutura obrigatória: if / elif / else."""
+
+nota = float(input("Digite a nota do aluno: "))
+
+if 0 <= nota <= 4.9:
+    print("Reprovado")
+elif 5.0 <= nota <= 6.9:
+    print("Recuperação")
+elif 7.0 <= nota <= 10.0:
+    print("Aprovado")
+else:
+    print("Nota inválida. Digite uma nota entre 0 e 10.")
