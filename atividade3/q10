@@ -1,0 +1,4 @@
+a = float(input("Digite o primeiro número: "))
+b = float(input("Digite o segundo número: "))
+print(f"Divisão com casas decimais: {a / b}")
+print(f"Divisão inteira: {int(a // b)}")
