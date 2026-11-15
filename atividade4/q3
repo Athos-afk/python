@@ -1,0 +1,8 @@
+celsius = float(input("Digite a temperatura em graus Celsius: "))
+
+# Processamento (cálculos de conversão)
+fahrenheit = (celsius * 9/5) + 32
+kelvin = celsius + 273.15
+
+print(f"{celsius:.2f} °C equivalem a {fahrenheit:.2f} °F")
+print(f"{celsius:.2f} °C equivalem a {kelvin:.2f} K")
