@@ -1,0 +1,3 @@
+nome = input("Digite o seu nome: ")
+salario = float(input("Digite o seu salário: "))
+print(f"Olá, {nome}! O seu salário é R$ {salario:.2f}")
