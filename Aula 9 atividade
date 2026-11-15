@@ -1,0 +1,132 @@
+# ==============================================================
+# Clínica Vida+ - Proposta de sistema em Python
+# Disciplina: Paradigma de Linguagem de Programação em Python
+# ==============================================================
+
+
+# ---------- CLASSES ----------
+
+# HERANÇA: Pessoa é a classe base de Paciente e Medico
+class Pessoa:
+    def __init__(self, nome, cpf, telefone):
+        self.nome = nome.strip().title()   # strip() remove espaços, title() deixa cada palavra com inicial maiúscula
+        self.__cpf = cpf                   # ENCAPSULAMENTO: atributo privado (dois underscores)
+        self.telefone = telefone
+
+    def get_cpf(self):
+        # O CPF só pode ser lido por este método
+        return self.__cpf
+
+    def apresentar(self):
+        print(f"Pessoa: {self.nome}")
+
+
+class Paciente(Pessoa):
+    def __init__(self, nome, cpf, telefone, idade):
+        super().__init__(nome, cpf, telefone)
+        self.idade = idade
+
+    def classificar_faixa_etaria(self):
+        if self.idade < 12:
+            return "Criança"
+        elif self.idade < 18:
+            return "Adolescente"
+        elif self.idade < 60:
+            return "Adulto"
+        else:
+            return "Idoso"
+
+    # POLIMORFISMO: mesmo método apresentar(), comportamento diferente
+    def apresentar(self):
+        print(f"Paciente: {self.nome} | CPF: {self.get_cpf()} | "
+              f"Tel: {self.telefone} | Idade: {self.idade} ({self.classificar_faixa_etaria()})")
+
+
+class Medico(Pessoa):
+    def __init__(self, nome, cpf, telefone, especialidade):
+        super().__init__(nome, cpf, telefone)
+        self.especialidade = especialidade.strip().upper()  # upper() padroniza a especialidade
+
+    # POLIMORFISMO: implementação própria do Médico
+    def apresentar(self):
+        print(f"Dr(a). {self.nome} | Especialidade: {self.especialidade} | Tel: {self.telefone}")
+
+
+class Consulta:
+    def __init__(self, paciente, medico, data, horario):
+        self.paciente = paciente
+        self.medico = medico
+        self.data = data
+        self.horario = horario
+        self.__situacao = "Agendada"   # ENCAPSULAMENTO: só muda pelos métodos abaixo
+
+    def get_situacao(self):
+        return self.__situacao
+
+    def alterar_situacao(self, nova_situacao):
+        if nova_situacao == 1:
+            self.__situacao = "Realizada"
+        elif nova_situacao == 2:
+            self.__situacao = "Cancelada"
+        else:
+            print("Opção de situação inválida.")
+
+    def apresentar(self):
+        print(f"{self.data} às {self.horario} | Paciente: {self.paciente.nome} | "
+              f"Médico: {self.medico.nome} ({self.medico.especialidade}) | "
+              f"Situação: {self.get_situacao()}")
+
+
+class Clinica:
+    def __init__(self, nome):
+        self.nome = nome
+        self.pacientes = []   # listas que guardam os objetos
+        self.medicos = []
+        self.consultas = []
+
+    def buscar_paciente(self, cpf):
+        for paciente in self.pacientes:
+            if paciente.get_cpf() == cpf:
+                return paciente
+        return None
+
+
+# ---------- FUNÇÕES ----------
+
+def ler_cpf():
+    # while: repete até o usuário digitar um CPF com 11 números
+    while True:
+        cpf = input("CPF (somente números): ").strip().replace(".", "").replace("-", "")
+        if len(cpf) == 11 and cpf.isdigit():
+            return cpf
+        print("CPF inválido! Deve ter 11 números.")
+
+
+def cadastrar_paciente(clinica):
+    print("\n--- Cadastro de Paciente ---")
+    nome = input("Nome: ")
+    cpf = ler_cpf()
+    if clinica.buscar_paciente(cpf) is not None:
+        print("Paciente já cadastrado!")
+        return
+    telefone = input("Telefone: ")
+    idade = int(input("Idade: "))
+    clinica.pacientes.append(Paciente(nome, cpf, telefone, idade))
+    print("Paciente cadastrado com sucesso!")
+
+
+def cadastrar_medico(clinica):
+    print("\n--- Cadastro de Médico ---")
+    nome = input("Nome: ")
+    cpf = ler_cpf()
+    telefone = input("Telefone: ")
+    especialidade = input("Especialidade: ")
+    clinica.medicos.append(Medico(nome, cpf, telefone, especialidade))
+    print("Médico cadastrado com sucesso!")
+
+
+def cadastrar_consulta(clinica):
+    print("\n--- Cadastro de Consulta ---")
+    if len(clinica.pacientes) == 0 or len(clinica.medicos) == 0:
+        print("É preciso ter ao menos 1 paciente e 1 médico cadastrados.")
+        return
