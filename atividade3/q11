@@ -1,0 +1,4 @@
+largura = float(input("Digite a largura (em metros): "))
+altura = float(input("Digite a altura (em metros): "))
+area = largura * altura
+print(f"A área total é: {area} m²")
