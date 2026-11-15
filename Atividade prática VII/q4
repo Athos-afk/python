@@ -1,0 +1,23 @@
+import threading
+
+contador = 0
+lock = threading.Lock()
+
+
+def incrementar():
+    global contador
+    for _ in range(100000):
+        with lock:
+            contador += 1
+
+
+threads = []
+for _ in range(4):
+    t = threading.Thread(target=incrementar)
+    threads.append(t)
+    t.start()
+
+for t in threads:
+    t.join()
+
+print(f"Valor final do contador: {contador}")  # esperado: 400000
