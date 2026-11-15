@@ -1,0 +1,22 @@
+class Funcionario:
+    def __init__(self, nome, salario):
+        self.nome = nome
+        self.salario = salario
+
+    def bonus(self):
+        return self.salario * 0.10
+
+
+class Gerente(Funcionario):
+    def bonus(self):  # sobrescrita do método
+        return self.salario * 0.20
+
+
+funcionarios = [
+    Funcionario("João", 3000.00),
+    Gerente("Ana", 5000.00),
+]
+
+for f in funcionarios:
+    print(f"{f.nome}: bônus de R$ {f.bonus():.2f}")
+# Esperado: R$ 300.00 e R$ 1000.00
