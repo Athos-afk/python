@@ -1,0 +1,5 @@
+x = float(input("Digite o primeiro número: "))
+y = float(input("Digite o segundo número: "))
+z = float(input("Digite o terceiro número: "))
+total = x * y * z
+print(f"A multiplicação entre {x}, {y} e {z} é igual {total}")
