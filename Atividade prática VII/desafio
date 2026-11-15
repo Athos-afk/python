@@ -1,0 +1,30 @@
+def calcular_media(notas):
+    return sum(notas) / len(notas)
+
+
+def situacao(media, minimo=7.0):
+    if media >= minimo:
+        return "Aprovado"
+    else:
+        return "Reprovado"
+
+
+def ler_nota(numero):
+    while True:
+        nota = float(input(f"Digite a nota {numero}: "))
+        if 0 <= nota <= 10:
+            return nota
+        print("Nota inválida! Digite um valor entre 0 e 10.")
+
+
+nome = input("Digite o nome do estudante: ")
+notas = []
+
+for i in range(4):
+    notas.append(ler_nota(i + 1))
+
+media = calcular_media(notas)
+
+print(f"Estudante: {nome}")
+print(f"Média: {media:.2f}")
+print(f"Situação: {situacao(media)}")
