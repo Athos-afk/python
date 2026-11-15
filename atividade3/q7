@@ -1,0 +1,6 @@
+p1 = float(input("Digite a nota da 1ª prova: "))
+p2 = float(input("Digite a nota da 2ª prova: "))
+p3 = float(input("Digite a nota da 3ª prova: "))
+p4 = float(input("Digite a nota da 4ª prova: "))
+media = (p1 + p2 + p3 + p4) / 4
+print(f"A média do aluno é: {media}")
