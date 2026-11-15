@@ -1,0 +1,4 @@
+valor = float(input("Digite o valor da compra: "))
+valor_com_desconto = valor - (valor * 0.10)
+print(f"Valor total: R$ {valor:.2f}")
+print(f"Valor com 10% de desconto: R$ {valor_com_desconto:.2f}")
