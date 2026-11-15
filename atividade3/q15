@@ -1,0 +1,3 @@
+salario = float(input("Digite o salário do funcionário: "))
+salario_reajustado = salario * 1.10
+print(f"O salário reajustado é: R$ {salario_reajustado:.2f}")
